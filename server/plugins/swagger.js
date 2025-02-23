@@ -8,7 +8,6 @@ const Package = require('../../package.json');
 module.exports = {
     name: 'app-swagger',
     async register(server) {
-
         await server.register([
             Inert,
             Vision,
@@ -16,8 +15,17 @@ module.exports = {
                 plugin: HapiSwagger,
                 options: {
                     info: {
+                        title: 'API Documentation',
                         version: Package.version
-                    }
+                    },
+                    securityDefinitions: {
+                        jwt: {
+                            type: 'apiKey',
+                            name: 'Authorization',
+                            in: 'header'
+                        }
+                    },
+                    security: [{ jwt: [] }], 
                 }
             }
         ]);
