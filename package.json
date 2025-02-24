@@ -17,6 +17,7 @@
     "joi": "17.x.x",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.10.0",
     "objection": "2.x.x"
   },
   "peerDependencies": {

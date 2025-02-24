@@ -4,10 +4,12 @@ const Glue = require('@hapi/glue');
 const Exiting = require('exiting');
 const Manifest = require('./manifest');
 
+
 exports.deployment = async ({ start } = {}) => {
 
     const manifest = Manifest.get('/', process.env);
     const server = await Glue.compose(manifest, { relativeTo: __dirname });
+
 
     if (start) {
         await Exiting.createManager(server).start();
